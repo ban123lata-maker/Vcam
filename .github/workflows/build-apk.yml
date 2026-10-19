@@ -1,3 +1,4 @@
+
 name: Build APK
 on: [push, workflow_dispatch]
 jobs:
@@ -25,7 +26,7 @@ jobs:
         run: |
           ls -R
           echo "--- check gradle files ---"
-          ls -l settings.gradle build.gradle app/build.gradle || true
+          ls -l settings.gradle build.gradle app/build.gradle gradle.properties || true
 
       - name: Setup Gradle 8.7
         uses: gradle/actions/setup-gradle@v3
@@ -40,4 +41,3 @@ jobs:
         with:
           name: app-debug
           path: app/build/outputs/apk/debug/app-debug.apk
-
